@@ -8,6 +8,13 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           //PHP database calls go here
+          ['Time', 'Value']
+          <?php 
+            while($row = mysqli_fetch_array($result)) {
+              echo ",['" . $row['Time'] . "," . $row['Value'];
+            }
+          ?>
+          
         ]);
 
         var options = {
