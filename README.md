@@ -1,4 +1,4 @@
 AquaponicsSensorProject
 =======================
 
-UW Aquaponic's Sensor Project Repo
+UW Aquaponic's Sensor Project Repository
