@@ -11,6 +11,7 @@ void setup() {
 }
 
 void loop() {
- //proceed normally
+ Serial.write("I exist");
+ delay(10000);
 }
 
