@@ -1,6 +1,4 @@
-document.write("test");
-
-setInterval(function(){attemptInsert();}, 5000); // attemp to insert new data every five second
+setInterval(function(){attemptInsert();}, 5000);
 
 function attemptInsert()
 {

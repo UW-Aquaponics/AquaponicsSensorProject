@@ -1,23 +1,26 @@
 require "serialport"
 
 #params for serial port
-port_str = SOME_PORT_NAME
+port_str = "/dev/ttyACM0"
 baud_rate = 9600
 data_bits = 8
 stop_bits = 1
 parity = SerialPort::NONE
-file_str = SOME_FILE_NAME
+file_str = "temp_data"
 
 time = Time.new
-file = IO.open(file_str,w)
 port = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
 
 #just read forever
 while true do
    while (i = port.gets) do
-     file.puts(i)
-     file.puts(time.inspect)
+     IO.write(file_str,i+"\n"+Time.now)
    end
 end
+#while true do
+#  while (i=port.gets) do
+#    puts(i)
+#  end
+#end
 
 port.close
