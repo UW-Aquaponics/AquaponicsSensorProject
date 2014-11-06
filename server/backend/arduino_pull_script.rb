@@ -14,13 +14,8 @@ port = SerialPort.new(port_str, baud_rate, data_bits, stop_bits, parity)
 #just read forever
 while true do
    while (i = port.gets) do
-     IO.write(file_str,i+"\n"+Time.now)
+     IO.write(file_str,i+Time.now.inspect.gsub(/ -\d\d\d\d/,""))
    end
 end
-#while true do
-#  while (i=port.gets) do
-#    puts(i)
-#  end
-#end
 
 port.close
