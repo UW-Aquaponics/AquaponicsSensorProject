@@ -1,17 +1,21 @@
-int data [1];
+float data [1];
 char names [1]= {'p'};
-int ph;
+float ph;
 
 void setup(){
   Serial.begin(9600);
   Serial.end();
 }
 
-float get_ph(int number, int temp){
-  return 7 - (2.5 - analogRead(number)/200) / (0.257179 + 0.000941468 * temp);
+float get_ph(int number, float temp){
+  float ph_val = 7 - (2.5 - analogRead(number)/200.0) / (0.257179 + 0.000941468 * temp);
+  float adjusted_ph = -61.6111+69.4444* sqrt(0.0288*ph_val+0.788691);
+  return adjusted_ph;
+  //return analogRead(number);
+  //return 0.0178*analogRead(number)*0.9-1.889;
 }
 
-void send_data(int dataForSend[], char sensorNames[],int size) 
+void send_data(float dataForSend[], char sensorNames[],int size) 
 {
   String sendString = "";
   for(int i=0;i < size;i++){
@@ -25,7 +29,7 @@ void send_data(int dataForSend[], char sensorNames[],int size)
 }
 
 void loop(){
-  ph = int(get_ph(0,20)*100);
+  ph = get_ph(0,20);
   data[0] = ph;
   send_data(data, names,1);
   //Serial.print(ph);
