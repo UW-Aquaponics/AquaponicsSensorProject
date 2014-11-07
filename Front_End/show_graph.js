@@ -1,35 +1,30 @@
-var readData = {time: ['Time', '5:00', '6:00', '7:00'],
-                temp: ['Temperature', 21, 23, 22],
-                humidity: ['Humidity', 100, 120, 130]};
-
 google.load("visualization", "1", {packages:["corechart"]});
-google.setOnLoadCallback(drawChart)
+google.setOnLoadCallback(getData);
 
 function getData() {
-    var req = new XMLHttpRequest();
-    req.open("Get", "Get_Data.php", false);
-    req.send(null);
+    $.getJSON("http://localhost/cgi-bin/data.lisp", function(data) {
+        drawChart(data);
+    });
 }
 
-function buildData(read) {
+function convertData(read) {
     var newData = [];
-    for (i = 0; i < 4; i++) {
-        newData.push([read.time[i], read.temp[i], read.humidity[i]]);
+    newData.push(["Date", "Humidity"]);
+    for (i = 0; i < 2; i++) {
+        console.log(read.times[i], " ", read.humidity[i]);
+        newData.push([read.times[i], read.humidity[i]]);
     }
     return newData;
 }
 
-function drawChart() {
-    var dataTable = buildData(readData);
-    var data = google.visualization.arrayToDataTable(dataTable);
+function drawChart(jsonData) {
+    var arrayData = convertData(jsonData);
+    var chartData = google.visualization.arrayToDataTable(arrayData);
 
     var options = {
         title: 'Sensor Data'
     };
 
-    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-    chart.draw(data, options);
+    var chart = new google.visualization.LineChart($("#chart_div").get(0));
+    chart.draw(chartData, options);
 }
-
-console.log(buildData(readData));
-drawChart();
