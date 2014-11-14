@@ -59,11 +59,10 @@ and open the template in the editor.
                             ); // array to turn into JSON object
 
         $json = json_encode($finalArray);
-
-    ?>
         
-        <input type="hidden" name="JSON" value='<?php if(isset($json)) echo $json; ?>'>
+        echo($json);
         
+    ?>     
        
         
     </body>
