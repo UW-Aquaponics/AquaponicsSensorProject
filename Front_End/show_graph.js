@@ -2,8 +2,9 @@ google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(getData);
 
 function getData() {
-    $.getJSON("http://localhost/cgi-bin/data.lisp", function(data) {
+    $.getJSON("dataSending.php", function(data) {
         drawChart(data);
+        document.write("Hello");
     });
 }
 
