@@ -1,0 +1,68 @@
+root { 
+    
+    display: block;
+    
+}
+
+.valueTable
+{
+    
+    margin: auto;
+    
+    text-align: center;
+    vertical-align: middle;
+    
+    color: blue;
+
+    margin-top: 140px;
+    margin-bottom: 20px;
+    
+    border-collapse:collapse;
+    border-width:1px;
+    border-style:solid;
+    
+}
+
+.valueTable th
+{
+ 
+    font-family: "Arial Black";
+    font-size: 20px;
+    color:grey;
+    
+}
+
+.valueTable tr:nth-child(odd)
+{
+    
+    background-color: lightgreen;
+    
+}
+
+.valueTable tr:nth-child(even)
+{
+    
+    
+    
+}
+
+
+
+.valueTable td
+{
+    
+    
+    
+}
+
+
+
+.submitButton
+{
+    
+    margin: auto;
+    
+}
+
+
+
