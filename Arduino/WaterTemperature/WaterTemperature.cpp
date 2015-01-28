@@ -3,9 +3,6 @@
 #include "DallasTemperature.h"
 #include "WaterTemperature.h"
 
-OneWire* oneWire;
-DallasTemperature* sensor;
-
 WaterTemperature::WaterTemperature()
 {
   oneWire = new OneWire(ONE_WIRE_BUS);

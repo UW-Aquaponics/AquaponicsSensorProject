@@ -14,6 +14,8 @@ class WaterTemperature{
     float readWaterTemp();
   private:
     int _pin;
+    OneWire* oneWire;
+    DallasTemperature* sensor;
 };
 
 #endif
