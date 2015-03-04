@@ -1,0 +1,17 @@
+//copied from pHsensor.h, and is likely not accurate/complete for Distance Sensor
+
+#ifndef Sensor_h
+#define Sensor_h
+
+#include "Arduino.h"
+
+class WLSensor
+{
+  public:
+    WLSensor(int pin);
+    float read(float temp);
+  private:
+    int _pin;
+};
+
+#endif
