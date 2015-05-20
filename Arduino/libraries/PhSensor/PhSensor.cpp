@@ -10,6 +10,6 @@ PhSensor::PhSensor(int pin)
 float PhSensor::read(float temp)
 {
   float ph_val = 7 - (2.5 - analogRead(_pin) / 200.0) / (0.257179 + 0.000941468 * temp);
-  float adjusted_ph = -61.6111 + 69.4444 * sqrt(0.0288 * ph_val + 0.788691);
-  return adjusted_ph;
+  float adjusted_ph = ph_val + .3;
+  return ph_val;
 }

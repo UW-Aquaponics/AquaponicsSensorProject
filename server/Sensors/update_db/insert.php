@@ -1,6 +1,6 @@
 <?php
 
-require_once 'connection.php';  //SQL connection file
+require_once '../connection.php';  //SQL connection file
 
 //if(isset($_GET['check'])) // if ajax function calls
 //{

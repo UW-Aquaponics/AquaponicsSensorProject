@@ -9,7 +9,7 @@
 
 class WaterTemperature{
   public:
-    WaterTemperature();
+    WaterTemperature(int pin);
     ~WaterTemperature();
     float readWaterTemp();
   private:

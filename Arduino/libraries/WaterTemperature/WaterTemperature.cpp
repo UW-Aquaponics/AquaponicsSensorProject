@@ -3,9 +3,9 @@
 #include "DallasTemperature.h"
 #include "WaterTemperature.h"
 
-WaterTemperature::WaterTemperature()
+WaterTemperature::WaterTemperature(int pin)
 {
-  oneWire = new OneWire(ONE_WIRE_BUS);
+  oneWire = new OneWire(pin);
   sensor = new DallasTemperature(oneWire);
   sensor->begin();
 }
