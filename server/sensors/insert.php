@@ -2,10 +2,10 @@
 
 require_once '../connection.php';  //SQL connection file
 
-//if(isset($_GET['check'])) // if ajax function calls
-//{
+if(isset($_GET['check'])) // if ajax function calls
+{
 
-    $tables = array("air_humidity", "air_temperature", "dissolved_oxygen", "flow_rate", "illuminance", "ph", "water_level", "water_temperature"); // table names stored in array for ease of use
+    $tables = array("air_humidity", "air_temperature", "dissolved_oxygen", "flow_rate",  "ph", "water_level", "water_temperature"); // table names stored in array for ease of use
 
     $content = file_get_contents('measurements.txt');
     
@@ -52,6 +52,6 @@ require_once '../connection.php';  //SQL connection file
         
     }
     
-//}
+}
 
 ?>
