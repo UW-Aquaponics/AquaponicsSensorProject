@@ -14,7 +14,7 @@ require_once '../connection.php';  //SQL connection file
         
         $measurements = explode(',', $content);                   //store individual measurements in array
     
-        $query = "INSERT INTO timing_table (Time) VALUES ('" . $measurements[8] . "');";
+        $query = "INSERT INTO sensor (test ) VALUES ('"Text"');";
         echo $query;
         mysqli_query($con, $query);
 
